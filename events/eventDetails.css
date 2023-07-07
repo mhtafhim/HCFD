@@ -1,0 +1,35 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.news-content {
+    margin-bottom: 40px;
+}
+
+.news-content img {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.news-content h2 {
+    margin-bottom: 10px;
+}
+
+.time {
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 20px;
+    color: #555;
+}
