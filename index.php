@@ -9,9 +9,9 @@
         <nav>
             <div class="nav-links">
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="./index.php">Home</a></li>
                     <li><a href="#">Events</a></li>
-                    <li><a href="http://localhost/hcfd/members.php">Member's List</a></li>
+                    <li><a href="./memberview.php">Member's List</a></li>
                 </ul>
             </div>
             <div class="logo">
@@ -20,11 +20,16 @@
             <div class="nav-links">
                 <ul>
                     <li><a href="#">Contact us</a></li>
-                    <li><a href="#">Commitee</a></li>
+                    <li><a href="./commitee.php">Commitee</a></li>
                     <li><a href="#">About us</a></li>
                 </ul>
             </div>
         </nav>
     </header>
+
+
+<h1>Main page...</h1>
+
+
 </body>
 </html>

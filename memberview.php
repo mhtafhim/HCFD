@@ -4,9 +4,37 @@
 <head>
     <title>Members List</title>
     <link rel="stylesheet" type="text/css" href="memberviewStyle.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    
 </head>
 
 <body>
+
+<header>
+        <nav>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="./index.php">Home</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="./memberview.php">Member's List</a></li>
+                </ul>
+            </div>
+            <div class="logo">
+                <img src="HCFD_logo.png" alt="Logo">
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="./commitee.php">Commitee</a></li>
+                    <li><a href="#">About us</a></li>
+                </ul>
+            </div>
+        </nav>x
+    </header>
+
+<!--  end of header --->
+
+
     <div class="container">
 
         <div class="search-section">
@@ -26,7 +54,7 @@
             <?php 
             require_once 'config/db.php';
 
-            $limit = 2;
+            $limit = 20;
             $page = isset($_GET['page']) ? $_GET['page'] : 1;
             $offset = ($page - 1) * $limit;
 
