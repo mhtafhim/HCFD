@@ -9,7 +9,19 @@ $result = mysqli_query($con,$query);
 require_once 'config/db.php';
 require_once 'config/functions.php';
 
-$result = dispaly_committee_data(2023);
+$sessionsList = display_committee_session();
+
+$type = isset($_GET['type']) ? $_GET['type'] : '';
+
+if(!empty($type))
+{
+    $result = display_committee_data($type);
+}
+else
+{
+    $result = display_committee_data(2023);
+}
+
 
 
 ?>
@@ -22,6 +34,7 @@ $result = dispaly_committee_data(2023);
     <title>Navigation Bar with Logo</title>
     
     <link rel="stylesheet" type="text/css" href="commitee.css">
+    <!-- <link rel="stylesheet" type="text/css" href="memberviewStyle.css"> -->
     <link rel="stylesheet" type="text/css" href="styles.css">
     <!-- Load Font Awesome Icon Library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -55,11 +68,31 @@ $result = dispaly_committee_data(2023);
 
 
     <!------------------- main segment --------------->
+   
+    <div class="container">
+
+
     <br><br>
-    <h1>...Commitee ...</h1><br><br>
+    <h1 class="committee_heading">Committee</h1><br><br>
 
+    <div class="search-section">
+            <form method="GET" action="commitee.php">
+                
+                <select id="search-option" name="type">
+                <?php 
+                while($row = mysqli_fetch_assoc($sessionsList)){
+                 ?>
 
+                    <option value="<?php echo $row['session']; ?>"><?php echo $row['session']; ?></option>
 
+                <?php    
+                       }
+                ?>
+
+                </select>
+                <button type="submit" id="search-button">Go</button>
+            </form>
+        </div>
 
 
 
@@ -82,6 +115,8 @@ $result = dispaly_committee_data(2023);
         <?php    
                 }
       ?>
+
+    </div>
 
     </div>
 

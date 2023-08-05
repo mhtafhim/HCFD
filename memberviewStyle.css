@@ -33,6 +33,13 @@ body {
     margin-bottom: 10px;
 }
 
+.member-id
+{
+   
+    font-weight: lighter;
+   
+}
+
 .member-name {
     font-weight: bold;
     margin-bottom: 10px;

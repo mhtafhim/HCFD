@@ -1,8 +1,10 @@
 /* Reset default margin and padding */
-* {
-    margin: 0;
-    padding: 0;
-  }
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 20px;
+}
   
   /* Set background color */
   body {
@@ -50,6 +52,12 @@
     margin-bottom: 5px;
   }
   
+
+  .committee_heading{
+   
+    align-content: center;
+    
+  }
   
   
   

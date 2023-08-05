@@ -5,12 +5,12 @@
     <title>Members List</title>
     <link rel="stylesheet" type="text/css" href="memberviewStyle.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    
+
 </head>
 
 <body>
 
-<header>
+    <header>
         <nav>
             <div class="nav-links">
                 <ul>
@@ -29,10 +29,10 @@
                     <li><a href="#">About us</a></li>
                 </ul>
             </div>
-        </nav>x
+        </nav>
     </header>
 
-<!--  end of header --->
+    <!--  end of header --->
 
 
     <div class="container">
@@ -54,7 +54,7 @@
             <?php 
             require_once 'config/db.php';
 
-            $limit = 20;
+            $limit = 6;
             $page = isset($_GET['page']) ? $_GET['page'] : 1;
             $offset = ($page - 1) * $limit;
 
@@ -77,10 +77,13 @@
             <div class="member-card">
                 <img class="member-photo" src="member_photo/<?php echo $row['email'] ?>.jpg" alt="Member Photo">
                 <div class="member-info">
+                    
                     <span class="member-name"><?php echo $row['memberName']; ?></span><br><br>
+                    <span class="blood-group"><?php echo "Member ID: " . $row['memberID']; ?></span><br>
                     <span class="blood-group"><?php echo "Blood Group: " . $row['bloodGroup']; ?></span><br>
                     <span class="institute"><?php echo $row['institute']; ?></span><br>
-                    <span class="phone-number"><?php echo $row['memberPhone']; ?></span>
+                    <span class="phone-number"><?php echo "Phone: " .$row['memberPhone']; ?></span>
+                  
                 </div>
             </div>
             <?php endwhile; ?>
