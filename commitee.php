@@ -33,7 +33,7 @@ else
 <head>
     <title>Navigation Bar with Logo</title>
     
-    <link rel="stylesheet" type="text/css" href="commitee.css">
+    <link rel="stylesheet" type="text/css" href="committee.css">
     <!-- <link rel="stylesheet" type="text/css" href="memberviewStyle.css"> -->
     <link rel="stylesheet" type="text/css" href="styles.css">
     <!-- Load Font Awesome Icon Library -->

@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $memberName = strtoupper($_POST['memberName']);
     $memberPhone = $_POST['memberPhone'];
     $bloodGroup = strtoupper($_POST['bloodGroup']);
+    $gender = $_POST['gender'];
     $fathersName = $_POST['fathersName'];
     $mothersName = $_POST['mothersName'];
     $permanentAddress = $_POST['permanentAddress'];
@@ -31,6 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $guardianName = $_POST['guardianName'];
     $guardianPhone = $_POST['guardianPhone'];
     $email = $_POST['email'];
+    $dob = $_POST['dob_year'].'-'.$_POST['dob_month'].'-'.$_POST['dob_day'];
 
     /* Handle file upload
     $targetDirectory = "member_photo/";
@@ -42,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Handle file upload
     $targetDirectory = "member_photo/";
-    $originalFileName = $_FILES["photo"]["name"];
+    $originalFileName = $_FILES["photoo"]["name"];
     $email = $_POST["email"];
     $uploadOk = 1;
     $extension =  strtolower(pathinfo($originalFileName, PATHINFO_EXTENSION));
@@ -53,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if the file is an actual image
     if (isset($_POST["submit"])) {
-        $check = getimagesize($_FILES["photo"]["tmp_name"]);
+        $check = getimagesize($_FILES["photoo"]["tmp_name"]);
         if ($check !== false) {
             echo "File is an image - " . $check["mime"] . ".";
             $uploadOk = 1;
@@ -70,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Check file size
-    if ($_FILES["photo"]["size"] > 5000000000) {
+    if ($_FILES["photoo"]["size"] > 5000000000) {
         echo "Sorry, your file is too large.";
         $uploadOk = 0;
     }
@@ -84,10 +86,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // If file upload is successful, move the file and insert data into the database
     if ($uploadOk == 1) {
-        if (move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile)) {
+        if (move_uploaded_file($_FILES["photoo"]["tmp_name"], $targetFile)) {
             // Prepare and execute the SQL statement
-            $stmt = $conn->prepare("INSERT INTO MEMBER (memberName, memberPhone, bloodGroup, fathersName, mothersName, permanentAddress, presentAddress, institute, class, depertment, guardianName, guardianPhone, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->execute([$memberName, $memberPhone, $bloodGroup, $fathersName, $mothersName, $permanentAddress, $presentAddress, $institute, $class, $department, $guardianName, $guardianPhone, $email]);
+            $stmt = $conn->prepare("INSERT INTO MEMBER (memberName, memberPhone, bloodGroup, fathersName, mothersName, permanentAddress, presentAddress, institute, class, depertment, guardianName, guardianPhone, email,gender,date_of_birth) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)");
+            $stmt->execute([$memberName, $memberPhone, $bloodGroup, $fathersName, $mothersName, $permanentAddress, $presentAddress, $institute, $class, $department, $guardianName, $guardianPhone, $email,$gender,$dob]);
 
             // Redirect to a success page or display a success message
             echo "<h2>Member added successfully!</h2>";

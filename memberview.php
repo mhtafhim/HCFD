@@ -3,7 +3,7 @@
 
 <head>
     <title>Members List</title>
-    <link rel="stylesheet" type="text/css" href="memberviewStyle.css">
+    <link rel="stylesheet" type="text/css" href="memberview-Style.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
 
 </head>
@@ -77,13 +77,13 @@
             <div class="member-card">
                 <img class="member-photo" src="member_photo/<?php echo $row['email'] ?>.jpg" alt="Member Photo">
                 <div class="member-info">
-                    
+                    <span class="member-id"><?php echo "MEMBER ID: " . $row['memberID']; ?></span><br>
                     <span class="member-name"><?php echo $row['memberName']; ?></span><br><br>
-                    <span class="blood-group"><?php echo "Member ID: " . $row['memberID']; ?></span><br>
+
                     <span class="blood-group"><?php echo "Blood Group: " . $row['bloodGroup']; ?></span><br>
                     <span class="institute"><?php echo $row['institute']; ?></span><br>
                     <span class="phone-number"><?php echo "Phone: " .$row['memberPhone']; ?></span>
-                  
+
                 </div>
             </div>
             <?php endwhile; ?>
