@@ -59,5 +59,23 @@
     
   }
   
+  select.select_btn {
+    background-color: white;
+    color: #fff;
+    border-color: #396433;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    line-height: 1.5;
+    color : black
+  }
   
-  
+  #search-button{
+    padding: 10px;
+    background-color: #529140;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}

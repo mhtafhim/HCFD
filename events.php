@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="events_styles.css">
+    <link rel="stylesheet" href="events_style.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Blog Post Card</title>
 </head>
@@ -50,7 +50,17 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
+        $limit = 5;
+        $page = isset($_GET['page']) ? $_GET['page'] : 1;
+        $offset = ($page - 1) * $limit;
+
+        
+
+
         $sql = "SELECT * FROM events_posts"; // Assuming your table name is events_post
+        
+        $sql .= " ORDER BY publish_date desc LIMIT $limit OFFSET $offset";
+
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -71,7 +81,7 @@
                         <h2 class="post-title"><?php echo $row['title']; ?></h2>
                         <p class="post-description"><?php echo $truncated_description."..."; ?></p>
                         <p class="post-date">Published on <?php echo $row['publish_date']; ?></p>
-                        <a href="#" class="details-button">Details</a>
+                        <a href="./event_details.php?post_id=<?php echo $row['post_id']; ?>" class="details-button">Details</a>
                     </div>
                 </div>
         <?php
@@ -79,6 +89,34 @@
         } else {
             echo "No blog posts available.";
         }
+        ?>
+
+        <div class="pagination">
+        <?php
+        $query = "SELECT COUNT(*) as total FROM events_posts";
+        $countResult = mysqli_query($conn, $query);
+        $row = mysqli_fetch_assoc($countResult);
+        $totalMembers = $row['total'];
+        $totalPages = ceil($totalMembers / $limit);
+
+        if ($page > 1) :
+        ?>
+        <a href="?page=<?php echo ($page - 1); ?>">Previous</a>
+        <?php endif;
+
+        for ($i = 1; $i <= $totalPages; $i++) :
+        ?>
+        <a href="?page=<?php echo $i; ?>"
+            <?php if ($page == $i) echo 'class="active"'; ?>><?php echo $i; ?></a>
+        <?php endfor;
+
+        if ($page < $totalPages) :
+        ?>
+        <a href="?page=<?php echo ($page + 1); ?>">Next</a>
+        <?php endif; ?>
+    </div>
+
+    <?php
 
         $conn->close();
         ?>

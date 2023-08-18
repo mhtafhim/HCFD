@@ -20,8 +20,8 @@ if(!empty($type))
 else
 {
     $currentDate = new DateTime();
-    $year = $currentDate->format("Y");
-    $result = display_committee_data($year);
+    $type = $currentDate->format("Y");
+    $result = display_committee_data($type);
 }
 
 
@@ -35,7 +35,7 @@ else
 <head>
     <title>Navigation Bar with Logo</title>
     
-    <link rel="stylesheet" type="text/css" href="committee.css">
+    <link rel="stylesheet" type="text/css" href="committee_styles.css">
     <!-- <link rel="stylesheet" type="text/css" href="memberviewStyle.css"> -->
     <link rel="stylesheet" type="text/css" href="styles.css">
     <!-- Load Font Awesome Icon Library -->
@@ -80,12 +80,14 @@ else
     <div class="search-section">
             <form method="GET" action="commitee.php">
                 
-                <select id="search-option" name="type">
+                <select id="search-option" name="type" class = "select_btn">
                 <?php 
                 while($row = mysqli_fetch_assoc($sessionsList)){
+                    $ses = $row['session'];
                  ?>
-
-                    <option value="<?php echo $row['session']; ?>"><?php echo $row['session']; ?></option>
+                   
+                    <option value="<?php echo $ses; ?>"  <?php if($type == $ses) echo 'selected';else  ?>><?php echo $row['session']; ?></option>
+                  
 
                 <?php    
                        }
@@ -107,7 +109,7 @@ else
                 while($row = mysqli_fetch_assoc($result)){
     ?>
         <div class="team-member ">
-            <img src="<?php echo "member_photo/".$row['email'].".jpg" ?>" alt="President/CEO">
+            <img src="<?php echo "member_photo/".$row['email'].".jpg" ?>" alt="<?php echo $row['designation']; ?>">
             <h3><?php echo $row['memberName']; ?></h3>
             <p><?php echo $row['designation']; ?></p>
             <p>Email: <?php echo $row['email']; ?></p>

@@ -42,8 +42,9 @@
     <table>
         <tr>
             <th>Committee Member ID</th>
+            <th>Member ID</th>
             <th>Member Name</th>
-            <th>Email</th>
+            <!-- <th>Email</th> -->
             <th>Phone</th>
             <th>Designation</th>
             <th>Session</th>
@@ -79,8 +80,9 @@
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
             echo "<td>{$row['C_memID']}</td>";
+            echo "<td>{$row['memberID']}</td>";
             echo "<td>{$row['memberName']}</td>";
-            echo "<td>{$row['email']}</td>";
+        //    echo "<td>{$row['email']}</td>";
             echo "<td>{$row['memberPhone']}</td>";
             echo "<td>{$row['designation']}</td>";
             echo "<td>{$row['session']}</td>";

@@ -42,7 +42,7 @@
 
             <form method="GET" action="memberview.php">
                 <input type="text" id="search-field" name="term" placeholder="Search">
-                <select id="search-option" name="type">
+                <select id="search-option" name="type" class = "select_btn">
                     <option value="memberName">Name</option>
                     <option value="bloodGroup">Blood Group</option>
                 </select>

@@ -46,21 +46,22 @@
             } elseif ($action === 'add_admin') {
         ?>
         <div class="form-section">
-        <?php
-              // Include the design file
-              include 'add-admin.php';
-         ?>
+              <?php
+                    // Include the design file
+                    include 'add-admin.php';
+               ?>
            
         </div>
         <?php
             } elseif ($action === 'add_committee') {
         ?>
         <div class="form-section">
-            <h3>Add Committee</h3>
-            <form action="add_committee.php" method="post">
-                <!-- Committee related form fields -->
-                <button type="submit">Add Committee</button>
-            </form>
+                
+              <?php
+                    // Include the design file
+                    include 'add_committee_form.php';
+               ?>
+
         </div>
         <?php
             } 
@@ -111,11 +112,10 @@
     elseif ($action === 'show_committee') {
            ?>
         <div class="form-section">
-            <h3>Add Committee</h3>
-            <form action="add_committee.php" method="post">
-                <!-- Committee related form fields -->
-                <button type="submit">Add Committee</button>
-            </form>
+               <?php
+                     // Include the design file
+                     include 'show_committeeList.php';
+                ?>
         </div>
         <?php
                } 

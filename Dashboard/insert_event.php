@@ -14,14 +14,15 @@ if ($conn->connect_error) {
 }
 
 // Retrieve form data
+$author_name = $_POST['author_name']; // New field for author's name
 $title = $_POST['title'];
 $description = $_POST['description'];
 //$publish_date = $_POST['publish_date'];
 
 // Prepare and execute the SQL query
-$sql = "INSERT INTO events_posts (title, description, publish_date) VALUES (?, ?, NOW())";
+$sql = "INSERT INTO events_posts (title, description, author, publish_date) VALUES (?, ?, ?, NOW())";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ss", $title, $description);
+$stmt->bind_param("sss", $title, $description, $author_name); // Added parameter for author's name
 $stmt->execute();
 
 // Get the last inserted post_id
