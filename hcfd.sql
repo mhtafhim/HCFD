@@ -21,7 +21,8 @@ CREATE TABLE MEMBER(
 	guardianName varchar(50) null,
 	guardianPhone varchar(20) null,
 	email varchar(50) not null
-
+	date_of_birth date,
+	gender varchar(10)
 );
 
 SELECT * FROM MEMBER
@@ -66,3 +67,23 @@ insert into COMMITTEE (memberID,designation,ranks,session,fromDate)values (1,'Pr
 
 
 select * from committee join member on member.memberID = committee.memberID where SESSION = 2023
+
+
+CREATE TABLE MEMBER_REQ (
+    memberID INT AUTO_INCREMENT PRIMARY KEY,
+    memberName VARCHAR(50) NOT NULL,
+    memberPhone VARCHAR(15) NOT NULL,
+    bloodGroup VARCHAR(5) NOT NULL,
+    fathersName VARCHAR(50) NOT NULL,
+    mothersName VARCHAR(50) NOT NULL,
+    permanentAddress VARCHAR(70) NOT NULL,
+    presentAddress VARCHAR(70) NOT NULL,
+    institute VARCHAR(50),
+    class VARCHAR(30),
+    depertment VARCHAR(30),
+    guardianName VARCHAR(50),
+    guardianPhone VARCHAR(20),
+    email VARCHAR(50) NOT NULL,
+    date_of_birth DATE,
+    gender VARCHAR(10)
+);

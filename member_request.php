@@ -1,7 +1,7 @@
 <?php
 
 require_once 'config/db.php';
-// Assuming you have a MySQL database connection already established
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -88,11 +88,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($uploadOk == 1) {
         if (move_uploaded_file($_FILES["photoo"]["tmp_name"], $targetFile)) {
             // Prepare and execute the SQL statement
-            $stmt = $conn->prepare("INSERT INTO MEMBER (memberName, memberPhone, bloodGroup, fathersName, mothersName, permanentAddress, presentAddress, institute, class, depertment, guardianName, guardianPhone, email,gender,date_of_birth) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)");
+            $stmt = $conn->prepare("INSERT INTO MEMBER_REQ (memberName, memberPhone, bloodGroup, fathersName, mothersName, permanentAddress, presentAddress, institute, class, depertment, guardianName, guardianPhone, email,gender,date_of_birth) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)");
             $stmt->execute([$memberName, $memberPhone, $bloodGroup, $fathersName, $mothersName, $permanentAddress, $presentAddress, $institute, $class, $department, $guardianName, $guardianPhone, $email,$gender,$dob]);
 
             // Redirect to a success page or display a success message
-            echo "<h2>Member added successfully!</h2>";
+            echo "<h6>Member Request successfully!</h6>";
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
@@ -108,11 +108,40 @@ $conn = null;
 
 <head>
     <title>Add Member</title>
-    <link rel="stylesheet" type="text/css" href="add_member_style.css">
+    <link rel="stylesheet" type="text/css" href="add-member_style.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 </head>
 
 <body>
-    <h1>Add Member</h1>
+
+<header>
+        <nav>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="./index.php">Home</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="./memberview.php">Member's List</a></li>
+                </ul>
+            </div>
+            <div class="logo">
+                <img src="HCFD_logo.png" alt="Logo">
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="./commitee.php">Commitee</a></li>
+                    <li><a href="#">About us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+<!-- end of header  -->
+    
+<div class="admin-container">
+    <h1> Member Request</h1>
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
         <div class="form-group">
             <label for="memberName">Member Name</label>
@@ -126,7 +155,7 @@ $conn = null;
 
         <div class="form-group">
             <label for="bloodGroup">Blood Group</label>
-            <select id="bloodGroup" name="bloodGroup" required>
+            <select id="bloodGroup" name="bloodGroup" required  class="btn btn-secondary">
                 <option value="" disabled selected>Select Blood Group</option>
                 <option value="A+">A+</option>
                 <option value="A-">A-</option>
@@ -140,46 +169,15 @@ $conn = null;
         </div>
 
 
-        <div class="dob-select">
-        <label for="bloodGroup">Date of Birth</label>
-            <select name="dob_year" required>
-                <option value="" disabled selected>Year</option>
-                <?php
-                        $currentYear = date('Y');
-                        $startYear = $currentYear - 100;
-                        for ($year = $currentYear; $year >= $startYear; $year--) {
-                            echo '<option value="' . $year . '">' . $year . '</option>';
-                        }
-                        ?>
-            </select>
-            <select name="dob_month" required>
-                <option value="" disabled selected>Month</option>
-                <?php
-                        $months = [
-                            'January', 'February', 'March', 'April',
-                            'May', 'June', 'July', 'August',
-                            'September', 'October', 'November', 'December'
-                        ];
-                        foreach ($months as $index => $month) {
-                            $monthValue = str_pad($index + 1, 2, '0', STR_PAD_LEFT);
-                            echo '<option value="' . $monthValue . '">' . $month . '</option>';
-                        }
-                        ?>
-            </select>
-            <select name="dob_day" required>
-                <option value="" disabled selected>Day</option>
-                <?php
-                        for ($day = 1; $day <= 31; $day++) {
-                            echo '<option value="' . $day . '">' . $day . '</option>';
-                        }
-                        ?>
-            </select>
-        </div>
+        <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
 
 
         <div class="form-group">
             <label for="gender">Gender</label>
-            <select id="gender" name="gender" required>
+            <select id="gender" name="gender" required class="btn btn-secondary">
                 <option value="" disabled selected>Select Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
@@ -243,9 +241,11 @@ $conn = null;
         </div>
 
         <div class="form-group">
-            <button type="submit">Add Member</button>
+            <button type="submit">Request</button>
         </div>
     </form>
+
+    </div>
 </body>
 
 </html>

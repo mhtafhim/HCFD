@@ -65,3 +65,11 @@ form button {
 form button:hover {
     background-color: #0056b3;
 }
+
+.section_title{
+    align-content: center;
+}
+
+.form-section {
+    padding: 0 5%;
+}

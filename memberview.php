@@ -3,7 +3,7 @@
 
 <head>
     <title>Members List</title>
-    <link rel="stylesheet" type="text/css" href="memberview-Style.css">
+    <link rel="stylesheet" type="text/css" href="memberview_Styles.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
 
 </head>
@@ -38,6 +38,8 @@
     <div class="container">
 
         <div class="search-section">
+
+
             <form method="GET" action="memberview.php">
                 <input type="text" id="search-field" name="term" placeholder="Search">
                 <select id="search-option" name="type">
@@ -47,6 +49,13 @@
                 <button type="submit" id="search-button">Search</button>
             </form>
         </div>
+
+
+        <!-- Member Request button aligned to the right -->
+        <div class="member-request-button-container">
+            <a href="./member_request.php" class="member-request-button">Member Request</a>
+        </div>
+
 
         <h1>Members List</h1>
 

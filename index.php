@@ -10,7 +10,7 @@
             <div class="nav-links">
                 <ul>
                     <li><a href="./index.php">Home</a></li>
-                    <li><a href="#">Events</a></li>
+                    <li><a href="./events.php">Events</a></li>
                     <li><a href="./memberview.php">Member's List</a></li>
                 </ul>
             </div>

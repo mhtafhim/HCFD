@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $hashed_password)) {
             // Login successful, redirect to dashboard or other pages
             // Replace "dashboard.php" with the page you want to redirect after successful login
-            header("Location: admin-dashboard.html");
+            header("Location: admin-dashboard.php");
             exit();
         } else {
             // Login failed, show an error message or redirect back to the login page with an error parameter
