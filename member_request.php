@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $guardianName = $_POST['guardianName'];
     $guardianPhone = $_POST['guardianPhone'];
     $email = $_POST['email'];
-    $dob = $_POST['dob_year'].'-'.$_POST['dob_month'].'-'.$_POST['dob_day'];
+    $dob = $_POST['dob'];
 
     /* Handle file upload
     $targetDirectory = "member_photo/";

@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config/db.php';
+
 // Assuming you have a MySQL database connection already established
 $servername = "localhost";
 $username = "root";

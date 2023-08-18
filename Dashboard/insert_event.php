@@ -21,7 +21,7 @@ $description = $_POST['description'];
 // Prepare and execute the SQL query
 $sql = "INSERT INTO events_posts (title, description, publish_date) VALUES (?, ?, NOW())";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sss", $title, $description);
+$stmt->bind_param("ss", $title, $description);
 $stmt->execute();
 
 // Get the last inserted post_id
@@ -33,7 +33,7 @@ $conn->close();
 // Handle uploaded cover image
 if (isset($_FILES['cover_image']) && $_FILES['cover_image']['error'] === UPLOAD_ERR_OK) {
     $target_dir = "./blog_image/";
-    $target_file = $target_dir . $post_id . "." . pathinfo($_FILES['cover_image']['name'], PATHINFO_EXTENSION);
+    $target_file = $target_dir . $post_id . "." ."jpg";
     
     move_uploaded_file($_FILES['cover_image']['tmp_name'], $target_file);
 }

@@ -19,7 +19,9 @@ if(!empty($type))
 }
 else
 {
-    $result = display_committee_data(2023);
+    $currentDate = new DateTime();
+    $year = $currentDate->format("Y");
+    $result = display_committee_data($year);
 }
 
 
