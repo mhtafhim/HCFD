@@ -82,8 +82,11 @@
                         <input type='hidden' name='id' value='{$row['id']}' />
                         <button class='edit-button' type='submit'>Edit</button>
                     </form>
-                    <form action='delete.php' method='post'>
+                    <form action='delete_member.php' method='post'>
                         <input type='hidden' name='id' value='{$row['id']}' />
+                        <input type='hidden' name='id_type' value='id' />
+                        <input type='hidden' name='option' value='show_admin' />
+                        <input type='hidden' name='anotherValue' value='admins' />
                         <button class='delete-button' type='submit'>Delete</button>
                     </form>
                   </td>";

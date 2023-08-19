@@ -33,7 +33,7 @@ else
 <html>
 
 <head>
-    <title>Navigation Bar with Logo</title>
+    <title>Commitee List</title>
     
     <link rel="stylesheet" type="text/css" href="committee_styles.css">
     <!-- <link rel="stylesheet" type="text/css" href="memberviewStyle.css"> -->
@@ -46,27 +46,10 @@ else
 
 
 
-    <header>
-        <nav>
-            <div class="nav-links">
-                <ul>
-                    <li><a href="./index.php">Home</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="./memberview.php">Member's List</a></li>
-                </ul>
-            </div>
-            <div class="logo">
-                <img src="HCFD_logo.png" alt="Logo">
-            </div>
-            <div class="nav-links">
-                <ul>
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="./commitee.php">Commitee</a></li>
-                    <li><a href="#">About us</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+  
+<?php
+        include 'header.php';
+   ?>
 
 
     <!------------------- main segment --------------->

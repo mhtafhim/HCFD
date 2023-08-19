@@ -108,34 +108,17 @@ $conn = null;
 
 <head>
     <title>Add Member</title>
-    <link rel="stylesheet" type="text/css" href="add-member_style.css">
+    <link rel="stylesheet" type="text/css" href="add-member_styles.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 </head>
 
 <body>
 
-<header>
-        <nav>
-            <div class="nav-links">
-                <ul>
-                    <li><a href="./index.php">Home</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="./memberview.php">Member's List</a></li>
-                </ul>
-            </div>
-            <div class="logo">
-                <img src="HCFD_logo.png" alt="Logo">
-            </div>
-            <div class="nav-links">
-                <ul>
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="./commitee.php">Commitee</a></li>
-                    <li><a href="#">About us</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+
+<?php
+        include 'header.php';
+   ?>
 
 
 <!-- end of header  -->

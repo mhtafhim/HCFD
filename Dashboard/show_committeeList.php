@@ -72,8 +72,8 @@
         $sql = "SELECT c.C_memID, m.memberName, m.email, m.memberPhone, c.designation, c.session, c.fromDate, c.toDate, c.ranks,m.memberID
                 FROM committee c
                 JOIN member m ON m.memberID = c.memberID
-                WHERE c.SESSION = '$session'
-                ORDER BY c.ranks";
+                -- WHERE c.SESSION = '$session'
+                ORDER BY session,c.ranks";
                 
         $result = mysqli_query($conn, $sql);
 
@@ -90,12 +90,15 @@
             echo "<td>{$row['toDate']}</td>";
             echo "<td>{$row['ranks']}</td>";
             echo "<td>
-            <form action='?action=edit_member' method='post'>
+            <form action='edit_committe.php' method='post'>
                 <input type='hidden' name='id' value='{$row['memberID']}' />
                 <button class='edit-button' type='submit'>Edit</button>
             </form>
             <form action='delete_member.php' method='post'>
-                <input type='hidden' name='id' value='{$row['memberID']}' />
+                <input type='hidden' name='id' value='{$row['C_memID']}' />
+                <input type='hidden' name='id_type' value='C_memID' />
+                <input type='hidden' name='option' value='show_committee' />
+                <input type='hidden' name='anotherValue' value='committee' />
                 <button class='delete-button' type='submit'>Delete</button>
             </form>
           </td>";

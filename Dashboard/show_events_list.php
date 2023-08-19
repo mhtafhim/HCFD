@@ -41,6 +41,7 @@
     <table>
         <tr>
             <th>Post ID</th>
+            <th>Author</th>
             <th>Title</th>
             <th>Description</th>
             <th>Publish Date</th>
@@ -60,7 +61,7 @@
             die("Connection failed: " . mysqli_connect_error());
         }
 
-        $sql = "SELECT `post_id`, `title`, `description`, `publish_date` FROM `events_posts`";
+        $sql = "SELECT * FROM `events_posts`";
         $result = mysqli_query($conn, $sql);
 
         while ($row = mysqli_fetch_assoc($result)) {
@@ -70,16 +71,20 @@
 
             echo "<tr>";
             echo "<td>{$row['post_id']}</td>";
+            echo "<td>{$row['author']}</td>";
             echo "<td>{$row['title']}</td>";
             echo "<td>{$truncated_description}</td>";
             echo "<td>{$row['publish_date']}</td>";
             echo "<td>
-                    <form action='edit.php' method='post'>
+                    <form action='edit_event.php' method='post'>
                         <input type='hidden' name='post_id' value='{$row['post_id']}' />
                         <button class='edit-button' type='submit'>Edit</button>
                     </form>
-                    <form action='delete.php' method='post'>
-                        <input type='hidden' name='post_id' value='{$row['post_id']}' />
+                    <form action='delete_member.php' method='post'>
+                        <input type='hidden' name='id' value='{$row['post_id']}' />
+                        <input type='hidden' name='id_type' value='post_id' />
+                        <input type='hidden' name='option' value='show_event' />
+                        <input type='hidden' name='anotherValue' value='events_posts' />
                         <button class='delete-button' type='submit'>Delete</button>
                     </form>
                   </td>";

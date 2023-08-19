@@ -43,7 +43,7 @@
     while ($row = mysqli_fetch_assoc($result)) :
     ?>
                 <div class="member-card">
-                    <img class="member-photo" src="member_photo/<?php echo $row['email'] ?>.jpg" alt="Member Photo">
+                    <img class="member-photo" src="http://localhost/hcfd/HCFD/member_photo/<?php echo $row['email'] ?>.jpg" alt="Member Photo">
                     <div class="member-info">
                         <span class="member-id"><?php echo "MEMBER REQ ID: " . $row['memberReqID']; ?></span><br>
                         <span class="member-name"><?php echo $row['memberName']; ?></span><br><br>

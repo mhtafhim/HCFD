@@ -24,6 +24,7 @@
             <li><a href="?action=member_req">Member Request</a></li>
             <li><a href="?action=add_event">Add New Event</a></li>
             <li><a href="?action=show_event">Show Events List</a></li>
+            <li><a href="?action=logout">Logout</a></li>
             <!-- Add more menu items as needed -->
         </ul>
     </div>
@@ -35,29 +36,29 @@
         ?>
         <div class="form-section">
 
-        <?php
+            <?php
               // Include the design file
               include 'add_member.php';
          ?>
-          
+
 
         </div>
         <?php
             } elseif ($action === 'add_admin') {
         ?>
         <div class="form-section">
-              <?php
+            <?php
                     // Include the design file
                     include 'add-admin.php';
                ?>
-           
+
         </div>
         <?php
             } elseif ($action === 'add_committee') {
         ?>
         <div class="form-section">
-                
-              <?php
+
+            <?php
                     // Include the design file
                     include 'add_committee_form.php';
                ?>
@@ -74,7 +75,7 @@
             ?>
         <div class="form-section">
 
-        <?php
+            <?php
               // Include the design file
               include 'show_member.php';
          ?>
@@ -87,8 +88,8 @@
     elseif ($action === 'show_admin') {
                           ?>
         <div class="form-section">
-            
-        <?php
+
+            <?php
               // Include the design file
               include 'admin_panel.php';
          ?>
@@ -100,7 +101,7 @@
     elseif ($action === 'show_event') {
            ?>
         <div class="form-section">
-        <?php
+            <?php
               // Include the design file
               include 'show_events_list.php';
          ?>
@@ -112,7 +113,7 @@
     elseif ($action === 'show_committee') {
            ?>
         <div class="form-section">
-               <?php
+            <?php
                      // Include the design file
                      include 'show_committeeList.php';
                 ?>
@@ -132,17 +133,30 @@
                 ?>
         <div class="form-section">
 
-        <?php
+            <?php
               // Include the design file
               include 'show_member_req.php';
          ?>
         </div>
         <?php
-          }  else {
-                echo '<p>Select an option from the sidebar to continue.</p>';
+          }
+    elseif ($action === 'logout') {
+            ?>
+        <div class="form-section">
+
+                  <?php
+                       // Include the design file
+                       header("Location: admin-login.html"); 
+                  ?>
+        </div>
+        <?php
+                   }
+       
+          else {
+                include 'welcome.php';
             }
         } else {
-            echo '<p>Select an option from the sidebar to continue.</p>';
+            include 'welcome.php';
         }
         ?>
     </div>

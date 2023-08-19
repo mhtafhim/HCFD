@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="admin_panel_styles.css">
     <title>Document</title>
 </head>
+
 <body>
 
-<table>
-                <tr>
-                    <th>Member ID</th>
-                    <th>Member Name</th>
-                    <th>Member Phone</th>
-                    <th>Blood Group</th>
+    <table>
+        <tr>
+            <th>Member ID</th>
+            <th>Member Name</th>
+            <th>Member Phone</th>
+            <th>Blood Group</th>
 
-                    <th>Email</th>
-                    <th>Date of Birth</th>
-                    <th>Gender</th>
-                    <th>Actions</th>
-                </tr>
+            <th>Email</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Actions</th>
+        </tr>
 
-                <?php
+        <?php
                  // Replace with your database connection details
                  $host = 'localhost';
                  $user = 'root';
@@ -70,19 +72,23 @@
                      </form>
                      <form action='delete_member.php' method='post'>
                          <input type='hidden' name='id' value='{$row['memberID']}' />
+                         <input type='hidden' name='id_type' value='memberID' />
+                         <input type='hidden' name='option' value='show_member' />
+                         <input type='hidden' name='anotherValue' value='MEMBER' />
                          <button class='delete-button' type='submit'>Delete</button>
-                     </form>
+                    </form>
+
                    </td>";
                      echo "</tr>";
                  }
          
               //   mysqli_close($conn);
                  ?>
-            </table>
+    </table>
 
 
-            <div class="pagination">
-            <?php
+    <div class="pagination">
+        <?php
             $query = "SELECT COUNT(*) as total FROM MEMBER";
             $countResult = mysqli_query($conn, $query);
             $row = mysqli_fetch_assoc($countResult);
@@ -91,21 +97,22 @@
 
             if ($page > 1) :
             ?>
-            <a href="./admin-dashboard.php?action=show_member&page=<?php echo ($page - 1); ?>">Previous</a>
-            <?php endif;
+        <a href="./admin-dashboard.php?action=show_member&page=<?php echo ($page - 1); ?>">Previous</a>
+        <?php endif;
 
             for ($i = 1; $i <= $totalPages; $i++) :
             ?>
-            <a href="./admin-dashboard.php?action=show_member&page=<?php echo $i; ?>"
-                <?php if ($page == $i) echo 'class="active"'; ?>><?php echo $i; ?></a>
-            <?php endfor;
+        <a href="./admin-dashboard.php?action=show_member&page=<?php echo $i; ?>"
+            <?php if ($page == $i) echo 'class="active"'; ?>><?php echo $i; ?></a>
+        <?php endfor;
 
             if ($page < $totalPages) :
             ?>
-            <a href="./admin-dashboard.php?action=show_member&page=<?php echo ($page + 1); ?>">Next</a>
-            <?php endif; ?>
-        </div>
+        <a href="./admin-dashboard.php?action=show_member&page=<?php echo ($page + 1); ?>">Next</a>
+        <?php endif; ?>
+    </div>
 
-    
+
 </body>
+
 </html>

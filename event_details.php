@@ -9,34 +9,16 @@
     <link rel="stylesheet" href="css/blogposts.css">
     <link rel="stylesheet" href="css/mobile.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <title>iBlog - Heaven for bloggers</title>
+    <title>Event Post Details</title>
 </head>
 
 <body>
 
 
 
-    <header>
-        <nav>
-            <div class="nav-links">
-                <ul>
-                    <li><a href="./index.php">Home</a></li>
-                    <li><a href="./events.php">Events</a></li>
-                    <li><a href="./memberview.php">Member's List</a></li>
-                </ul>
-            </div>
-            <div class="logo">
-                <img src="HCFD_logo.png" alt="Logo" class="logo-img">
-            </div>
-            <div class="nav-links">
-                <ul>
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="./commitee.php">Commitee</a></li>
-                    <li><a href="#">About us</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+<?php
+        include 'header.php';
+   ?>
 
 <?php
         // Replace with your database connection details

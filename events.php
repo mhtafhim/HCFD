@@ -6,32 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="events_style.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <title>Blog Post Card</title>
+    <title>Event Posts</title>
 </head>
 
 <body>
 
-    <header>
-        <nav>
-            <div class="nav-links">
-                <ul>
-                    <li><a href="./index.php">Home</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="./memberview.php">Member's List</a></li>
-                </ul>
-            </div>
-            <div class="logo">
-                <img src="HCFD_logo.png" alt="Logo">
-            </div>
-            <div class="nav-links">
-                <ul>
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="./commitee.php">Commitee</a></li>
-                    <li><a href="#">About us</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+   <?php
+        include 'header.php';
+   ?>
 
 
     <div class="parent-container">
