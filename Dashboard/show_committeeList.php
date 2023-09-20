@@ -90,8 +90,8 @@
             echo "<td>{$row['toDate']}</td>";
             echo "<td>{$row['ranks']}</td>";
             echo "<td>
-            <form action='edit_committe.php' method='post'>
-                <input type='hidden' name='id' value='{$row['memberID']}' />
+            <form action='./edit_committe.php' method='post'>
+                <input type='hidden' name='id' value='{$row['C_memID']}' />
                 <button class='edit-button' type='submit'>Edit</button>
             </form>
             <form action='delete_member.php' method='post'>

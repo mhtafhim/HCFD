@@ -40,6 +40,6 @@ if (isset($_FILES['cover_image']) && $_FILES['cover_image']['error'] === UPLOAD_
 }
 
 // Redirect to admin panel or confirmation page
-header("Location: ./admin-dashboard.php?action=add_event");
+header("Location: http://localhost/hcfd/HCFD/dashboard/admin-dashboard.php?action=add_event");
 exit();
 ?>

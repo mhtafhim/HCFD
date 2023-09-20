@@ -78,7 +78,7 @@
             echo "<td>{$row['phone']}</td>";
             echo "<td>{$row['member_id']}</td>";
             echo "<td>
-                    <form action='edit.php' method='post'>
+                    <form action='./admin-dashboard.php' method='post'>
                         <input type='hidden' name='id' value='{$row['id']}' />
                         <button class='edit-button' type='submit'>Edit</button>
                     </form>

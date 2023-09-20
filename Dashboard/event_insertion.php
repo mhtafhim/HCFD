@@ -11,7 +11,7 @@
 <body>
     <div class="admin-container">
         <h2>Add New Event</h2>
-        <form action="insert_event.php" method="POST" enctype="multipart/form-data">
+        <form action="http://localhost/hcfd/HCFD/insert_event.php" method="POST" enctype="multipart/form-data">
             <label for="author_name">Author Name:</label>
             <input type="text" id="author_name" name="author_name" required>
 

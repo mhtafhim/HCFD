@@ -33,7 +33,7 @@ else
 <html>
 
 <head>
-    <title>Commitee List</title>
+    <title>Committee List</title>
     
     <link rel="stylesheet" type="text/css" href="committee_styles.css">
     <!-- <link rel="stylesheet" type="text/css" href="memberviewStyle.css"> -->

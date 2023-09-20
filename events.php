@@ -41,7 +41,7 @@
 
         $sql = "SELECT * FROM events_posts"; // Assuming your table name is events_post
         
-        $sql .= " ORDER BY publish_date desc LIMIT $limit OFFSET $offset";
+        $sql .= " ORDER BY post_id desc LIMIT $limit OFFSET $offset";
 
         $result = $conn->query($sql);
 

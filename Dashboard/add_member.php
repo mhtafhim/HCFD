@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     */
 
     // Handle file upload
-    $targetDirectory = "member_photo/";
+    $targetDirectory = "http://localhost/hcfd/HCFD/member_photo/";
     $originalFileName = $_FILES["photoo"]["name"];
     $email = $_POST["email"];
     $uploadOk = 1;

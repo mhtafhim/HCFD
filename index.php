@@ -354,8 +354,8 @@
     <section class="our-blog">
         <div class="container">
             <div class="row session-title">
-                <h2> Our Blogs </h2>
-                <p>Take a look at what people say about US </p>
+                <h2> Our Events </h2>
+                <p> </p>
             </div>
             <div class="blog-row row">
                 <?php
@@ -485,7 +485,7 @@
 
                     <div class="col-sm-5">
 
-                        <div style="margin:50px" class="serv">
+                        <div style="margin:50px " class="serv">
 
                             <h2 style="margin-top:10px;">Address</h2>
 
